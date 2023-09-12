@@ -1,0 +1,156 @@
+
+$red: #ca2936;
+
+.App {
+  height: 100vh;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.mb-2{
+  margin-bottom: 20px;
+}
+
+.main_content {
+  // display: flex;
+  position: fixed;
+}
+
+.sidebar {
+  width: 300px;
+  border-right: 2px solid lightgray;
+  height: 100vh;
+  &_parent {
+    font-weight: bolder;
+    font-size: 19px;
+    cursor: pointer;
+    border-bottom: 2px solid lightgray;
+    padding: 10px;
+
+    list-style-type: disc;
+    list-style-position: inside;
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .up {
+        image-orientation: from-image;
+      }
+    }
+
+    li {
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  padding: 20px;
+  // background: #f0f0f0;
+  &_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .title,
+    .search {
+      flex: 1;
+    }
+
+    .title {
+      font-size: 30px;
+      color: $red;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .search {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+      gap: 5px;
+      input {
+        border: 1px solid black;
+        padding: 4px;
+        background: white;
+      }
+      ::placeholder {
+        font-style: italic;
+        color: lightgray;
+      }
+
+      button {
+        background: $red;
+        color: white;
+        border-radius: 4px;
+        padding: 4px 10px;
+        cursor: not-allowed;
+        &:disabled,
+        &[disabled] {
+         background: gray;
+        }
+      }
+    }
+  }
+
+  &_bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    .card {
+      &_header {
+        background: $red;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        color: white;
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+
+      &_body {
+        padding: 10px;
+        background: white;
+
+        input {
+          border: 1px solid black;
+          padding: 4px;
+          background: white;
+          width: 100%;
+        }
+        ::placeholder {
+          font-style: italic;
+          color: lightgray;
+        }
+
+        ul {
+          list-style: none;
+
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            div {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+
+              .strike {
+                text-decoration: line-through;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

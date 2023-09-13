@@ -212,7 +212,7 @@ const Content = () => {
   };
 
   return (
-    <div className="content m-4">
+    <div className="content col-md-10">
       <div className="content_top row">
         <div className="col-md-12 row align-items-center p-1">
           <div className="col-md-5 row align-items-center">

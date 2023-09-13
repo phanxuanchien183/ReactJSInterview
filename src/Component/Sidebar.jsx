@@ -128,7 +128,7 @@ const RenderMenu = (objMenu) => {
 
 const Sidebar = () => {
   return (
-    <div className="sidebar col-md-2">
+    <div className="sidebar  col-md-2">
       {data.map((child) => RenderMenu(child))}
     </div>
   );

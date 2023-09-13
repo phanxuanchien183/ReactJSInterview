@@ -140,7 +140,7 @@ const Content = () => {
               }
 
               if (filter.UserNames !== "") {
-                result = result.filter((x) => x.UserNames.includes(filter.UserNames) );
+                result = result.filter((x) => x.UserNames.includes(filter.UserNames));
               }
 
               if (filter.Role !== null) {
@@ -313,20 +313,20 @@ const Content = () => {
           <table className="table table-striped">
             <thead>
               <tr>
-                <th scope="col">No</th>
+                <th style={({ width: '5%' })} scope="col">No</th>
                 <th scope="col">ID</th>
-                <th scope="col">Username</th>
+                <th style={({ width: '40%' })} scope="col">Username</th>
                 <th scope="col">Role</th>
-                <th scope="col"></th>
+                <th style={({ width: '10%' })} scope="col"></th>
               </tr>
             </thead>
 
             <tbody>
               {dataTable.length > 0 ? (
-                dataTable.map((data) => {
+                dataTable.map((data, i) => {
                   return (
                     <tr key={data.id}>
-                      <th scope="row">{data.id}</th>
+                      <th scope="row">{i + 1}</th>
                       <td>{data.Id}</td>
                       <td>{data.UserNames}</td>
                       <td>

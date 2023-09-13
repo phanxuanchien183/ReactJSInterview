@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import "./ModalCustomChoice.styles.scss";
-import Modal from "react-bootstrap/Modal";
+// import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";

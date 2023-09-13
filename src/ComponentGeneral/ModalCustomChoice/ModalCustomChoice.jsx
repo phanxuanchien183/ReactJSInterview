@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import "./ModalCustomChoice.styles.scss";
-import { FaExclamationTriangle, FaTimes, FaCheck } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -87,7 +86,6 @@ const ModalCustomChoice = (props) => {
           onClick={onClickSubmit}
           disabled={isLoading}
         >
-          <FaCheck className="mb-1 mr-1" size="13" /> {" "}
           Yes
         </Button>{" "}
         <Button
@@ -96,7 +94,6 @@ const ModalCustomChoice = (props) => {
           color="error"
           onClick={onCloseModal}
         >
-          <FaTimes size="13" className="mb-1 mr-1" />
           Cancel
         </Button>
       </Modal.Footer>
@@ -116,7 +113,6 @@ ModalCustomChoice.propTypes = {
 
 ModalCustomChoice.defaultProps = {
   onSubmitButtonClick: () => {},
-  title: <FaExclamationTriangle size={20} />,
 };
 
 export default ModalCustomChoice;

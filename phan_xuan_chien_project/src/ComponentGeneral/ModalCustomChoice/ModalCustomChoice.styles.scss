@@ -1,0 +1,27 @@
+#ModalCustomChoice {
+  .modal-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal-footer {
+    justify-content: center;
+  }
+
+  .psc-choise-icon-header {
+    position: relative;
+    left: 45%;
+  }
+
+  .modal-btn-container-grid-fractional {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  // reponsive mobile
+  @media screen and (max-width: 768px) {}
+
+  // reponsive PC
+  @media only screen and (min-width: 769px) {}
+}

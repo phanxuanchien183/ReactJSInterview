@@ -51,7 +51,7 @@ CustomModal.propTypes = {
   renderHeaderModal: PropTypes.func,
   renderBodyModal: PropTypes.func,
   renderFooterModal: PropTypes.func,
-  isScrollable: PropTypes.string,
+  isScrollable: PropTypes.any,
 };
 
 CustomModal.defaultProps = {

@@ -228,9 +228,10 @@ const ModalAdd = (props) => {
 
 ModalAdd.propTypes = {
   modalSize: PropTypes.string.isRequired,
-  Id: PropTypes.string.isRequired,
+  Id:  PropTypes.any,
   isShow: PropTypes.bool,
-  onCloseModal: PropTypes.string,
+  onCloseModal: PropTypes.func,
+
 };
 
 export default memo(ModalAdd);

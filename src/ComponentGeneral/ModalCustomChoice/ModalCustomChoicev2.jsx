@@ -7,12 +7,10 @@ import { useRef } from "react";
 import Button from "@mui/material/Button";
 
 const ModalCustomChoice = (props) => {
-  const { title, isIcon, message, question, onSubmitButtonClick, isShow2 } =
+  const { title, isIcon, message, question, onSubmitButtonClick, isShow2, onCloseModal } =
     props;
 
-  const [isShowModal, setIsShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [strError, setStrError] = useState();
   const _isMounted = useRef(false);
 
   useEffect(() => {
@@ -22,14 +20,6 @@ const ModalCustomChoice = (props) => {
     };
   }, []);
 
-  const onCloseModal = () => {
-    _isMounted.current && setIsShowModal(false);
-  };
-
-  const onOpenModal = () => {
-    _isMounted.current && setIsShowModal(true);
-  };
-
   const onClickSubmit = async () => {
     if (_isMounted.current) {
       setIsLoading(true);
@@ -37,18 +27,6 @@ const ModalCustomChoice = (props) => {
       setIsLoading(false);
     }
   };
-  const setError = (value) => {
-    setStrError(value);
-  };
-  if (props.refs?.current !== undefined && props.refs?.current !== null) {
-    props.refs.current = {
-      setIsLoading,
-      onOpenModal,
-      onCloseModal,
-      onClickSubmit,
-      setError,
-    };
-  }
 
   return (
     <Modal
@@ -74,12 +52,6 @@ const ModalCustomChoice = (props) => {
         <label className="text-center font-weight-bold d-flex justify-content-center">
           {question}
         </label>
-        <br />
-        {strError && (
-          <label className="text-center text-danger d-flex justify-content-center">
-            {strError}
-          </label>
-        )}
       </Modal.Body>
       <Modal.Footer className="modal-btn-container-grid-fractional">
         <Button
@@ -104,17 +76,19 @@ const ModalCustomChoice = (props) => {
 };
 
 ModalCustomChoice.propTypes = {
-  refs: PropTypes.any.isRequired,
   title: PropTypes.any,
   isIcon: PropTypes.bool,
+  isShow2: PropTypes.bool,
   message: PropTypes.any,
   question: PropTypes.any,
   submitButtonText: PropTypes.any,
   onSubmitButtonClick: PropTypes.func,
+  onCloseModal: PropTypes.func,
 };
 
 ModalCustomChoice.defaultProps = {
-  onSubmitButtonClick: () => {},
+  onSubmitButtonClick: () => { },
+  onCloseModal: () => { },
 };
 
 export default ModalCustomChoice;

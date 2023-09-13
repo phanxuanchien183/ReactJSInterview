@@ -15,10 +15,11 @@ import {
 
 const Content = () => {
   const _isMounted = useRef(false);
-  const _modalChoiseRef = useRef(false);
+  // const _modalChoiseRef = useRef(false);
 
   const [dataTable, setDataTable] = useState([]),
     [isModalAdd, setIsModalAdd] = useState(false),
+    [isModalChoice, setIsModalChoice] = useState(false),
     [isLoad, setIsLoad] = useState(false),
     [dataRoles, setDataRoles] = useState([]),
     [page, setPage] = useState({
@@ -94,6 +95,9 @@ const Content = () => {
       }
       setDataId(null);
       setIsModalAdd(false);
+    },
+    onCloseModalChoice = () => {
+      setIsModalChoice(false);
     },
     nextPage = () => {
       if (_isMounted.current)
@@ -171,8 +175,9 @@ const Content = () => {
     onOpenModalDelete = (data) => {
       if (_isMounted.current && data) {
         setDataDelete(data);
-        _modalChoiseRef.current.setError?.();
-        _modalChoiseRef.current?.onOpenModal?.(true);
+        setIsModalChoice(true)
+        // _modalChoiseRef.current.setError?.();
+        // _modalChoiseRef.current?.onOpenModal?.(true);
       }
     },
     onSubmitModalDelete = () => {
@@ -186,7 +191,9 @@ const Content = () => {
           .then((res) => {
             if (res.status === 200) {
               setOpen(true);
-              _modalChoiseRef.current.onCloseModal?.();
+        setIsModalChoice(false)
+
+              // _modalChoiseRef.current.onCloseModal?.();
               setIsLoad(true);
 
               loadData();
@@ -377,10 +384,10 @@ const Content = () => {
             modalSize={"lg"}
           />
           <ModalCustomChoice
-            isShow2={isModalAdd}
-            // refs={_modalChoiseRef}
+            isShow2={isModalChoice}
             title={"Confirm delete"}
             question={`Do you want to delete user ${dataDelete?.UserNames}`}
+            onCloseModal={onCloseModalChoice}
             onSubmitButtonClick={() => onSubmitModalDelete()}
           />
         </dir>

@@ -87,7 +87,7 @@ const Content = () => {
       setIsModalAdd(true);
     },
     onCloseModal = (res) => {
-      if (res.status === 201) {
+      if (res.status === 201 ||res.status === 200) {
         setOpen(true);
 
         loadData();
@@ -377,7 +377,8 @@ const Content = () => {
             modalSize={"lg"}
           />
           <ModalCustomChoice
-            refs={_modalChoiseRef}
+            isShow2={isModalAdd}
+            // refs={_modalChoiseRef}
             title={"Confirm delete"}
             question={`Do you want to delete user ${dataDelete?.UserNames}`}
             onSubmitButtonClick={() => onSubmitModalDelete()}

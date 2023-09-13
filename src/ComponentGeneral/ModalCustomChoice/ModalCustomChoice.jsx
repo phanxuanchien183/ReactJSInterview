@@ -7,9 +7,9 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import Button from "@mui/material/Button";
 
-
 const ModalCustomChoice = (props) => {
-  const { title, isIcon, message, question, onSubmitButtonClick } = props;
+  const { title, isIcon, message, question, onSubmitButtonClick, isShow2 } =
+    props;
 
   const [isShowModal, setIsShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +54,8 @@ const ModalCustomChoice = (props) => {
   return (
     <Modal
       id={"ModalCustomChoice"}
-      show={isShowModal}
+      // show={isShowModal}
+      show={isShow2}
       animation={true}
       centered
       size={"sm"}
@@ -83,13 +84,19 @@ const ModalCustomChoice = (props) => {
       </Modal.Body>
       <Modal.Footer className="modal-btn-container-grid-fractional">
         <Button
+          className="m-1"
           variant="contained"
           onClick={onClickSubmit}
           disabled={isLoading}
         >
           Yes
         </Button>
-        <Button variant="contained" color="error" onClick={onCloseModal}>
+        <Button
+          className="m-1"
+          variant="contained"
+          color="error"
+          onClick={onCloseModal}
+        >
           <FaTimes size="13" className="mb-1 mr-1" />
           Cancel
         </Button>

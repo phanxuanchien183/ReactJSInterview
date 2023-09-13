@@ -3,37 +3,11 @@ import { memo, useState } from "react";
 const data = [
   {
     id: 1,
-    name: "Item Parent",
-    arrChild: [
-      {
-        id: 2,
-        name: "Item children",
-      },
-      {
-        id: 3,
-        name: "Item children",
-      },
-      {
-        id: 4,
-        name: "Item children",
-      },
-      {
-        id: 5,
-        name: "Item children",
-      },
-      {
-        id: 6,
-        name: "Item children",
-      },
-      {
-        id: 7,
-        name: "Item children",
-      },
-    ],
+    name: "Dashboard",
   },
   {
     id: 8,
-    name: "Item Parent",
+    name: "Manage",
     arrChild: [
       {
         id: 9,
@@ -45,18 +19,6 @@ const data = [
       },
       {
         id: 11,
-        name: "Item children",
-      },
-      {
-        id: 12,
-        name: "Item children",
-      },
-      {
-        id: 13,
-        name: "Item children",
-      },
-      {
-        id: 14,
         name: "Item children",
       },
     ],
@@ -75,18 +37,6 @@ const data = [
       },
       {
         id: 18,
-        name: "Item children",
-      },
-      {
-        id: 19,
-        name: "Item children",
-      },
-      {
-        id: 20,
-        name: "Item children",
-      },
-      {
-        id: 21,
         name: "Item children",
       },
     ],

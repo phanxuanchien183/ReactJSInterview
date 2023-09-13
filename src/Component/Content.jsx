@@ -82,13 +82,13 @@ const Content = () => {
   }, [loadData]);
 
   const onOpenModal = (Id) => {
-      if (Id !== undefined) {
-        setDataId(Id);
-      }
-      setIsModalAdd(true);
-    },
+    if (Id !== undefined) {
+      setDataId(Id);
+    }
+    setIsModalAdd(true);
+  },
     onCloseModal = (res) => {
-      if (res.status === 201 ||res.status === 200) {
+      if (res.status === 201 || res.status === 200) {
         setOpen(true);
 
         loadData();
@@ -100,15 +100,16 @@ const Content = () => {
       setIsModalChoice(false);
     },
     nextPage = () => {
-      if (_isMounted.current)
+      if (_isMounted.current) {
         if (
-          page.pageTotalPage === page.pageNumber ||
           page.pageNumber < page.pageTotalPage
-        )
+        ) {
           setPage((state) => ({
             ...state,
             pageNumber: page.pageNumber + 1,
           }));
+        }
+      }
     },
     backPage = () => {
       if (_isMounted.current)
@@ -139,11 +140,11 @@ const Content = () => {
               }
 
               if (filter.UserNames !== "") {
-                result = result.filter((x) => x.UserNames == filter.UserNames);
+                result = result.filter((x) => x.UserNames.includes(filter.UserNames) );
               }
 
               if (filter.Role !== null) {
-                result = result.filter((x) => x.Role == filter.Role.RoleCode);
+                result = result.filter((x) => x.Role === filter.Role.RoleCode);
               }
               setIsLoad(false);
               setPage((state) => ({
@@ -191,7 +192,7 @@ const Content = () => {
           .then((res) => {
             if (res.status === 200) {
               setOpen(true);
-        setIsModalChoice(false)
+              setIsModalChoice(false)
 
               // _modalChoiseRef.current.onCloseModal?.();
               setIsLoad(true);
@@ -289,6 +290,7 @@ const Content = () => {
           </div>
           <div className="col-md-6 right">
             <img
+              className="pointer"
               onClick={backPage}
               src={"assets/icon/left-arrow.svg"}
               alt="arrow-down"
@@ -297,6 +299,7 @@ const Content = () => {
             />
             {page.pageNumber}/{page.pageTotalPage}
             <img
+              className="pointer"
               onClick={nextPage}
               src={"assets/icon/right-arrow.svg"}
               alt="arrow-down"
